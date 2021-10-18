@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <img v-bind:src="imgUrl" width="500" alt="商品图片">
+  <br>
+  <a v-bind:href="productUrl">点击链接购买</a>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      imgUrl: 'https://img14.360buyimg.com/n0/jfs/t1/181485/4/17581/64734/61089385E0afb2e32/a47affeea0ec72e8.jpg',
+      productUrl: 'https://item.jd.com/10029755811218.html'
+    }
+  })
+</script>
+</body>
+</html>+

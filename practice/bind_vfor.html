@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red {
+      color: red
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(game, idx) in games" v-on:click="switchColor(idx)" v-bind:class="getClass(idx)">{{game}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      games: [ '王者荣耀', '像素射击', '王国保卫战', '植物大战僵尸'],
+      isRed: [ false, false, false, false ]
+    },
+    methods: {
+      switchColor: function (idx) {
+        const isRed = this.isRed
+        // 防止检测失效
+        isRed.splice(idx, 1, !isRed[idx])
+        console.log(this.games[idx] + " 改变颜色为 " + (isRed[idx] ? "红色" : "黑色"))
+      },
+
+      getClass: function (idx) {
+        console.log(this.games[idx] + " 的颜色是 " + (this.isRed[idx] ? "红色" : "黑色"))
+        return { red: this.isRed[idx] }
+      }
+    }
+  })
+</script>
+</body>
+</html>

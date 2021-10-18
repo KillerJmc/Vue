@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>总价格是：{{totalPrice}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      foods: [
+        { name: '番茄炒蛋', price: 3 },
+        { name: '青炒菠菜', price: 2 },
+        { name: '爆炒猪肝', price: 5 },
+      ]
+    },
+    computed: {
+      // 这里的totalPrice底层其实是自动调了本身的get方法，我们写的只是简化版的get方法
+      // 因此不是个方法，不能写小括号
+      /*
+        totalPrice: {
+          get: function () {
+
+          },
+          // set方法一般不写
+          set: function () {
+
+          }
+        }
+      */
+      // 计算属性要多写，比起函数的多次调用，计算属性只计算一遍，然后全局替换
+      totalPrice: function() {
+        console.log('计算属性被执行')
+        return this.foods
+            .map(t => t.price)
+            .reduce((prev, curr) => prev + curr)
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Count</title>
+</head>
+
+<body>
+<div id="app">
+  <h2>当前计数：{{counter}}</h2>
+  <button v-on:click="addOne">+</button>
+  <button v-on:click="subOne">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      counter: 0
+    },
+    methods: {
+      addOne: function () {
+        console.log('addOne被执行')
+        this.counter++
+      },
+      subOne: function () {
+        console.log('subOne被执行')
+        this.counter--
+      }
+    }
+  })
+</script>
+</body>
+</html>

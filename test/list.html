@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+
+<body>
+<div id="item">
+  <ul>
+    <li v-for="item in list">{{item}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#item",
+    data: {
+      list: [1, 2, 3]
+    }
+  })
+</script>
+</body>
+</html>

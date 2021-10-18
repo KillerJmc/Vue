@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+<div id="app">
+  <span>
+    <label for="resInput">成绩</label>
+    <input v-model="result" type="number" placeholder="请输入成绩以查询等级" id="resInput"  >
+  </span>
+
+  <h2 v-if="result < 0 || result > 100">输入有误，请重新输入</h2>
+  <h2 v-else-if="result < 60">差</h2>
+  <h2 v-else-if="Number(result) === 60">及格</h2>
+  <h2 v-else-if="result < 75">中</h2>
+  <h2 v-else-if="result < 85">良</h2>
+  <h2 v-else>优</h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      result: '',
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .red {
+      color: red
+    }
+    .blue {
+      color: blue
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2 v-bind:class="getClasses()">{{message}}</h2>
+  <button v-on:click="switchColor">换个颜色</button>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 666,
+      isBlue: true,
+      isRed: false
+    },
+    methods: {
+      getClasses: function () {
+        return { blue: this.isBlue, red: this.isRed }
+      },
+
+      switchColor: function () {
+        this.isBlue = !this.isBlue
+        this.isRed = !this.isRed
+      }
+    }
+  })
+</script>
+</body>
+</html>

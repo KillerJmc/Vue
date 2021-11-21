@@ -1,0 +1,32 @@
+.table {
+  width: 400px;
+  height: 150px;
+  font-size: 12px;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  border: 1px solid black;
+}
+
+.table tbody td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.table tbody .quantity-button {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.table tbody .remove-button {
+  font-size: 11px;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: normal;
+  color: darkblue;
+}

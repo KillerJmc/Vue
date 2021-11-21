@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>购物车</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="/lib/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>编号</th>
+          <th>书籍名称</th>
+          <th>出版日期</th>
+          <th>价格</th>
+          <th>购买数量</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr v-for="(book, idx) in books" v-if="book.show">
+          <td>{{book.id}}</td>
+          <td>{{book.name}}</td>
+          <td>{{book.publish_date}}</td>
+          <td>￥{{book.price}}</td>
+          <td>
+            <button v-on:click="minusQuantity(idx)" class="quantity-button">-</button>
+            <span>{{book.purchase_quantity}}</span>
+            <button v-on:click="plusQuantity(idx)" class="quantity-button">+</button>
+          </td>
+          <td>
+            <button v-on:click="remove(idx)" class="remove-button">移除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h1 class="total-price">总价：￥{{totalPrice}}</h1>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

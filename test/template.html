@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="/lib/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 父传子，camel使变量名（x-y -> xY)转换为驼峰，因为浏览器不支持html大写 -->
+    <counter v-bind:c-content.camel="content" v-on:increment="update" v-on:decrement="update"></counter>
+    <h2>点击次数：{{total}}</h2>
+    <h2>当前操作：{{state}}</h2>
+  </div>
+
+  <template id="counter0">
+    <div>
+      <h1>{{cContent}} {{count}}</h1>
+      <button v-on:click="increment">+</button>
+      <button v-on:click="decrement">-</button>
+    </div>
+  </template>
+
+  <script>
+    // 全局注册
+    Vue.component('counter', {
+      template: `#counter0`,
+      props: {
+        cContent: String
+      },
+      // 返回一个新data对象是因为要让多个实例不共享同一个data对象
+      data: function() {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increment: function() {
+          this.count++;
+          this.$emit('increment', '+')
+        },
+        decrement: function() {
+          this.count--;
+          this.$emit('decrement', '-')
+        }
+      }
+    })
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        content: '当前计数：',
+        total: 0,
+        state: ''
+      },
+      methods: {
+        update: function(state) {
+          this.total++;
+          this.state = state;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -9,8 +9,12 @@
     <router-link :to="pass" replace>参数传递</router-link>
     <button @click="changeStatus">跳转状态</button>
 
-    <!-- 标记显示在哪 -->
-    <router-view></router-view>
+    <!--保持其中的组件长时间存活-->
+    <!-- exclude表示不长期存活的标签 -->
+    <keep-alive exclude="About,Pass">
+      <!-- 标记显示在哪 -->
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

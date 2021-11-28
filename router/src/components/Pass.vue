@@ -7,7 +7,13 @@
 
 <script>
 export default {
-  name: "Pass"
+  name: "Pass",
+  created() {
+    console.log('created')
+  },
+  destroyed() {
+    console.log('destroyed')
+  }
 }
 </script>
 

@@ -1,3 +1,5 @@
+<!--注：views文件夹放的是主要视图-->
+
 <template>
   <div class="content">
     <slot></slot>

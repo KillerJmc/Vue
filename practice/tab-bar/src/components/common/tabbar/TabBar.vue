@@ -1,3 +1,4 @@
+<!-- 注：components/common放的是独立的公共组件，没有耦合 -->
 <template>
   <div class="tab-bar">
     <slot></slot>

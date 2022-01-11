@@ -9,8 +9,8 @@
 </template>
 
 <script>
-  import SimpleTabBar from "./views/tabbar/SimpleTabBar";
-  import Activity from "./views/Activity";
+  import SimpleTabBar from "./components/content/tabbar/SimpleTabBar";
+  import Activity from "./views/activity/Activity";
 
   export default {
     components: {SimpleTabBar, Activity}

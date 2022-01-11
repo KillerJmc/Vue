@@ -1,3 +1,5 @@
+<!-- 注：components/content放的是和项目耦合的公共组件 -->
+
 <template>
   <tab-bar>
     <tab-bar-item>
@@ -16,8 +18,8 @@
 </template>
 
 <script>
-import TabBar from "./TabBar";
-import TabBarItem from "./TabBarItem";
+import TabBar from "../../common/tabbar/TabBar";
+import TabBarItem from "../../common/tabbar/TabBarItem";
 
 export default {
   name: "SimpleTabBar",

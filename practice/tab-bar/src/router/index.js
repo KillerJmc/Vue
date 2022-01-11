@@ -31,7 +31,8 @@ const routes = [
 Vue.use(VueRouter)
 
 export default new VueRouter({
-  mode: 'history',
+  // history模式需要额外的配置（如nginx重定向回index.html），否则会404
+  // mode: 'history',
   routes
 })
 
